@@ -1,6 +1,6 @@
 name: Daily Slack message
 on:
-  workflow_dispatch
+  workflow_dispatch:
   schedule:
     - cron:  '42 9 * * *'
 
