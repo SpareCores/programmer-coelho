@@ -21,3 +21,6 @@ Optionally fine-tune the time of the scheduler in `.github/workflows/daily-post.
 (defined by UTC), and feel free to edit the prompt in the `quote.py` as well.
 
 Contributions welcomed!
+## License
+
+Licensed under MPL-2.0, contributions welcomed!
