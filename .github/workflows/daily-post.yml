@@ -23,5 +23,5 @@ jobs:
     - name: Run script
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        SLACK_WEBHOOK: ${{ SLACK_WEBHOOK }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       run: python quote.py
