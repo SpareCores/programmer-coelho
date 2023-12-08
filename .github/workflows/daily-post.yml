@@ -21,4 +21,7 @@ jobs:
     - name: Install Python dependencies
       uses: py-actions/py-dependency-install@v4
     - name: Run script
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        SLACK_WEBHOOK: ${{ SLACK_WEBHOOK }}
       run: python quote.py
