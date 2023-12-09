@@ -5,6 +5,31 @@
 import requests
 import os
 
+
+def askai(prompt):
+    """Ask ChatGPT and return a response."""
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + os.getenv('OPENAI_API_KEY'),
+    }
+
+    json_data = {
+        'model': 'gpt-3.5-turbo',
+        'messages': [
+            {
+                'role': 'user',
+                'content': prompt,
+            },
+        ],
+        'temperature': 0.7,
+    }
+
+    response = requests.post(
+        'https://api.openai.com/v1/chat/completions',
+        headers=headers, json=json_data)
+    return response.json().get('choices')[0].get('message').get('content')
+
+
 prompt = '''
 Generate an imperative short sentence that sounds like written by Paulo Coelho, but for programmers. It needs to have programming context, and must be very inspiring, motivational, and funny. Keep it short: one sentence, maximum 160 characters! Pick one or a few from the below list and argue about the importance:
 - clean code
@@ -32,27 +57,7 @@ Generate an imperative short sentence that sounds like written by Paulo Coelho, 
 - open-source
 '''
 
-headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + os.getenv('OPENAI_API_KEY'),
-}
-
-json_data = {
-    'model': 'gpt-3.5-turbo',
-    'messages': [
-        {
-            'role': 'user',
-            'content': prompt,
-        },
-    ],
-    'temperature': 0.7,
-}
-
-response = requests.post(
-    'https://api.openai.com/v1/chat/completions',
-    headers=headers, json=json_data)
-
-quote = response.json().get('choices')[0].get('message').get('content')
+quote = askai(prompt)
 
 # slack post
 if os.getenv('SLACK_WEBHOOK'):
@@ -73,6 +78,8 @@ if os.getenv('TWITTER_CLIENT_ID') and \
         access_token=os.environ['TWITTER_ACCESS_TOKEN'],
         access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET']
     )
+    if len(quote) > 160:
+        quote = askai('Shorten this text to be less than 160 characters:' + quote)
     client.create_tweet(text=quote)
 
 # local post
