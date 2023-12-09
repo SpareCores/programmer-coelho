@@ -2,7 +2,7 @@ name: Daily Twitter post
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '42 16 * * *'
+    - cron:  '42 9,12,16 * * *'
 
 permissions:
   contents: read
