@@ -1,8 +1,10 @@
 # The Programmer Coelho
 
-This is a tiny fun project connecting ChatGPT and Slack/Tweitter APIs
+This is a tiny fun project connecting ChatGPT and Slack/Twitter APIs
 to send daily messages in the style of the famous Coelho quotes, but
 about programming.
+
+Follow on [Twitter](https://twitter.com/DeveloperCoelho) for daily udpates!
 
 ## Setting up
 
