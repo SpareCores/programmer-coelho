@@ -79,7 +79,7 @@ if os.getenv('TWITTER_CLIENT_ID') and \
         access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET']
     )
     if len(quote) > 160:
-        quote = askai('Shorten this text to be less than 160 characters:' + quote)
+        quote = askai('Shorten this text to be less than 158 characters:' + quote)
     client.create_tweet(text=quote)
 
 # local post
