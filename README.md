@@ -45,11 +45,9 @@ Slack channel or on Twitter, just fork the repo, set up the above
 required and optional env vars as secrets in GitHub Actions, and you
 are ready to go!
 
-Optionally fine-tune the time of the scheduler in `.github/workflows/daily-post.yml`
-(defined by UTC), and feel free to edit the prompt in the `quote.py` as well.
-
-If you want to post on Twitter and Slack in different times, set up
-two GitHub Actions with limited env vars provided.
+Optionally fine-tune the time (UTC) of the scheduler(s) in the YAML
+files of `.github/workflows`, and feel free to edit the prompt in the
+`quote.py` as well.
 
 ## Examples
 
