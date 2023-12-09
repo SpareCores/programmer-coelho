@@ -2,7 +2,7 @@ name: Daily Slack message
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '42 9 * * *'
+    - cron:  '42 9 * * 1-5'
 
 permissions:
   contents: read
