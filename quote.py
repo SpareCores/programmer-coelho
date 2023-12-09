@@ -41,7 +41,26 @@ response = requests.post(
 
 quote = response.json().get('choices')[0].get('message').get('content')
 
-requests.post(
-    os.getenv('SLACK_WEBHOOK'),
-    headers={'Content-type': 'application/json'}, 
-    json={'text': quote})
+# slack post
+if os.getenv('SLACK_WEBHOOK'):
+    requests.post(
+        os.getenv('SLACK_WEBHOOK'),
+        headers={'Content-type': 'application/json'},
+        json={'text': quote})
+
+# twitter post
+if os.getenv('TWITTER_CLIENT_ID') and \
+   os.getenv('TWITTER_CLIENT_SECRET') and \
+   os.getenv('TWITTER_ACCESS_TOKEN') and \
+   os.getenv('TWITTER_ACCESS_TOKEN_SECRET'):
+    import tweepy
+    client = tweepy.Client(
+        consumer_key=os.environ['TWITTER_CLIENT_ID'],
+        consumer_secret=os.environ['TWITTER_CLIENT_SECRET'],
+        access_token=os.environ['TWITTER_ACCESS_TOKEN'],
+        access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET']
+    )
+    client.create_tweet(text=quote)
+
+# local post
+print(quote)

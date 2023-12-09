@@ -1,16 +1,34 @@
 # The Programmer Coelho
 
-This is a tiny fun project connecting ChatGPT and Slack APIs to send
-daily messages in the style of the famous Coelho quotes, but about
-programming.
+This is a tiny fun project connecting ChatGPT and Slack/Tweitter APIs
+to send daily messages in the style of the famous Coelho quotes, but
+about programming.
 
 ## Setting up
 
-This is a super basic Python script with minimal dependencies, 
-but you need to provide two environment variables:
+This is a super basic Python script with minimal dependencies,
+so you need to install Python 3 and a few packages:
 
-- `OPENAI_KEY`: your OpenAI key
+```sh
+pip install -r requirements.txt
+```
+
+Then provide at least the below environment variable:
+
+- `OPENAI_KEY`: your OpenAI key required
+
+Optionally define the below environment variable as well
+to post on a Slack channel:
+
 - `SLACK_WEBHOOK`: a Slack Webhook URL tied to a channel
+
+Optionally define the below environment variables as well
+to post on Twitter:
+
+- `TWITTER_CLIENT_ID`: the client id form your Consumer Keys
+- `TWITTER_CLIENT_SECRET`: the client secret form your Consumer Keys
+- `TWITTER_ACCESS_TOKEN`: the access token from your Authentication Tokens
+- `TWITTER_ACCESS_TOKEN_SECRET`: the access token secret from your Authentication Tokens
 
 Then run the script:
 
@@ -18,14 +36,18 @@ Then run the script:
 python quote.py
 ```
 
-## Automation, options
+## Automation
 
-If you want to set this up to automatically post messages in your Slack 
-channel, just fork the repo, set up the above env vars as secrets in 
-GitHub Actions, and you are ready to go!
+If you want to set this up to automatically post messages in your
+Slack channel or on Twitter, just fork the repo, set up the above
+required and optional env vars as secrets in GitHub Actions, and you
+are ready to go!
 
-Optionally fine-tune the time of the scheduler in `.github/workflows/daily-post.yml` 
+Optionally fine-tune the time of the scheduler in `.github/workflows/daily-post.yml`
 (defined by UTC), and feel free to edit the prompt in the `quote.py` as well.
+
+If you want to post on Twitter and Slack in different times, set up
+two GitHub Actions with limited env vars provided.
 
 ## Examples
 
