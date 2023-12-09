@@ -10,6 +10,7 @@ Generate an imperative short sentence that sounds like written by Paulo Coelho, 
 - clean code
 - perfect software
 - importance of unit testing
+- dead code
 - good documentation
 - joy of the users
 - intuitive user interface
@@ -17,6 +18,18 @@ Generate an imperative short sentence that sounds like written by Paulo Coelho, 
 - don't build technical debt
 - fix bugs
 - always improve UX
+- linting code
+- test coverage
+- clean commit history
+- descriptive git commit messages
+- coding standard
+- readable code
+- security
+- refactor
+- ship fast
+- efficiency
+- simplicity
+- open-source
 '''
 
 headers = {
