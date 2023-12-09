@@ -6,7 +6,7 @@ import requests
 import os
 
 prompt = '''
-Generate  an imperative sentence that sounds like written by Paulo Coelho, but for programmers. It needs to have programming context, but very inspiring and motivational. Keep it short: one sentence, max 3 lines, imperative style with reasoning. Pick one or a few from the below list and argue about the importance:
+Generate an imperative short sentence that sounds like written by Paulo Coelho, but for programmers. It needs to have programming context, and must be very inspiring, motivational, and funny. Keep it short: one sentence, maximum 160 characters! Pick one or a few from the below list and argue about the importance:
 - clean code
 - perfect software
 - importance of unit testing
