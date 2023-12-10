@@ -59,6 +59,9 @@ Generate an imperative short sentence that sounds like written by Paulo Coelho, 
 
 quote = askai(prompt).strip('\"')
 
+# local post
+print(quote)
+
 # slack post
 if os.getenv('SLACK_WEBHOOK'):
     requests.post(
@@ -83,6 +86,3 @@ if os.getenv('TWITTER_CLIENT_ID') and \
             'Shorten this text to be less than 160 characters:'
             + quote).strip('\"')
     client.create_tweet(text=quote)
-
-# local post
-print(quote)
