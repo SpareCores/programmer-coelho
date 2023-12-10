@@ -29,23 +29,30 @@ def askai(prompt):
         headers=headers, json=json_data)
     return response.json().get('choices')[0].get('message').get('content')
 
-
 prompt = '''
-Generate an imperative short sentence that sounds like written by Paulo Coelho, but for programmers. It needs to have programming context, and must be very inspiring, motivational, and funny. Keep it short: one sentence, maximum 160 characters! Pick one or a few from the below list and argue about the importance:
+You are a super senior architect sharing wisdom for junior programmers in the stlye of Paulo Coelho.
+Write one, short sentence, maximum 3 lines, which can be shared in social media to train and entertrain
+other developers and programmers. Include one or two hastags in the message.
+
+This quote must be extremely inspiring, motivation, and funny. Again, keep it short: one sentence, maximum 3 lines.
+
+The quote should include an educational message about programming best practices. As an example, pick one of the below items (with equal chance for each in the list) or something similar:
+
+- unit testing
 - clean code
-- perfect software
-- importance of unit testing
 - dead code
+- 10x programmer
+- unicorn
+- framework
+- logging
 - good documentation
-- joy of the users
-- intuitive user interface
-- great user experience
-- don't build technical debt
-- fix bugs
-- always improve UX
-- linting code
-- test coverage
+- tech debt
+- linting
+- intergration testing
+- e2e tests
+- bugs
 - clean commit history
+- test coverage
 - descriptive git commit messages
 - coding standard
 - readable code
@@ -55,6 +62,9 @@ Generate an imperative short sentence that sounds like written by Paulo Coelho, 
 - efficiency
 - simplicity
 - open-source
+- user experience
+
+And make sure to exagerate to make the message funny, e.g. argue for the importance of any of the above for_current_screen the better good of the universe, joy of the users, intuitive user interfaces etc.
 '''
 
 quote = askai(prompt).strip('\"')
