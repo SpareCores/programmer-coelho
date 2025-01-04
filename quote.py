@@ -15,8 +15,8 @@ def askai(prompt):
     }
 
     json_data = {
-        'model': 'gpt-3.5-turbo',
-        'messages': [
+        "model": "gpt-4o-mini",
+        "messages": [
             {
                 'role': 'user',
                 'content': prompt,
